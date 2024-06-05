@@ -54,7 +54,7 @@ async function handleFileUpload() {
   }
 
   try {
-    const response = await fetch('http://localhost:3000/upload', {
+    const response = await fetch('http://194.164.77.171/api/upload', {
       method: "POST",
       body: formData,
       headers: {
