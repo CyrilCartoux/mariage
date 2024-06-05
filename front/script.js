@@ -65,6 +65,7 @@ async function handleFileUpload() {
     const data = await response.json();
 
     if (response.status !== 200) {
+      hideLoader();
       return alert(data.message);
     }
     hideLoader();
