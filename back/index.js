@@ -20,9 +20,11 @@ app.post(
   (req, res, next) => {
     // validate password
     if (!req.headers) {
+      console.log('no headers');
       return res.status(401).json({ message: "Missing password" });
     }
     if (req.headers.password !== "password") {
+      console.log('invalid password', req.headers.password);
       return res.status(401).json({ message: "Invalid password" });
     }
     next();
@@ -35,22 +37,20 @@ app.post(
       },
     };
     const form = new formidable.IncomingForm(options);
-
+    
     form.parse(req, async (err, fields, files) => {
       if (err) {
         console.log("err :>> ", err);
         return res
-          .status(500)
-          .json({
-            message: "An error occurred uploading your files",
-            error: err,
-          });
+        .status(500)
+        .json({
+          message: "An error occurred uploading your files",
+          error: err,
+        });
       }
-
-      console.log("files :>> ", files);
+      console.log('uploading... :>> ');
 
       const uploadedFiles = files["files"];
-      console.log("uploadedFiles :>> ", uploadedFiles);
       if (!Array.isArray(uploadedFiles)) {
         return res.status(400).json({ message: "No files uploaded" });
       }
@@ -65,6 +65,7 @@ app.post(
         });
 
         const fileIds = await Promise.all(uploadPromises);
+        console.log('uploading successfull');
         return res
           .status(200)
           .json({ message: "Files uploaded successfully", fileIds });
