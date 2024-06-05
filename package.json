@@ -1,0 +1,28 @@
+{
+  "name": "lisoncyril",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node back/index.js",
+    "start:w": "nodemon back/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyrilCartoux/mariage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CyrilCartoux/mariage/issues"
+  },
+  "homepage": "https://github.com/CyrilCartoux/mariage#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "formidable": "^3.5.1",
+    "googleapis": "^137.1.0",
+    "nodemon": "^3.1.3"
+  }
+}
