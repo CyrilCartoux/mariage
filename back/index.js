@@ -11,12 +11,12 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json({ limit: "1mb" }));
 app.use(cors());
 
-app.get("/api/hello", (req, res) => {
+app.get("/hello", (req, res) => {
   return res.status(200).send("Hello World");
 });
 
 app.post(
-  "/api/upload",
+  "/upload",
   (req, res, next) => {
     // validate password
     if (!req.headers) {
